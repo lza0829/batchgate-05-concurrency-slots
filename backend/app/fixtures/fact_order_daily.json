@@ -1,0 +1,6 @@
+{
+  "watermark_ts": "2026-11-10T19:00:00Z",
+  "rows": [
+    {"biz_date": "2026-11-10", "order_count": 3, "amount_sum": 223.5}
+  ]
+}

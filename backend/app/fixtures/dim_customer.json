@@ -1,0 +1,7 @@
+{
+  "watermark_ts": "2026-11-10T17:30:00Z",
+  "rows": [
+    {"customer_id": "C-1", "name": "Ada"},
+    {"customer_id": "C-2", "name": "Ben"}
+  ]
+}

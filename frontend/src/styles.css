@@ -1,0 +1,76 @@
+:root {
+  --bg: #f3efe6;
+  --ink: #1c2418;
+  --muted: #5c6b55;
+  --panel: #fffdf8;
+  --line: #d5ccb8;
+  --accent: #2f6b4f;
+  --danger: #9b3b2e;
+  --warn: #8a6a1f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #e7f0e4 0%, transparent 55%),
+    linear-gradient(180deg, #efe8da, var(--bg));
+}
+.layout { display: flex; min-height: 100vh; }
+.rail {
+  width: 200px;
+  padding: 1.25rem 1rem;
+  background: #1f2a1c;
+  color: #edf3ea;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.brand { font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+.rail a {
+  color: #c9d6c4;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+}
+.rail a.router-link-active { background: #2f6b4f; color: #fff; }
+main { flex: 1; padding: 1.5rem; }
+.page h1 { margin: 0 0 0.5rem; font-size: 1.55rem; }
+.muted { color: var(--muted); }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.85rem 0;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.45rem 0.35rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.mono { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; }
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: #e5eee7;
+}
+.tag.ok { background: #d8eadf; }
+.tag.danger { background: #f3d7d2; color: var(--danger); }
+.tag.warn { background: #f3e6c4; color: var(--warn); }
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+button.secondary { background: #4a5a46; }
+input, select {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.3rem 0.45rem;
+  background: #fff;
+}
