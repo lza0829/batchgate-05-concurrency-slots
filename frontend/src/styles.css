@@ -74,3 +74,12 @@ input, select {
   padding: 0.3rem 0.45rem;
   background: #fff;
 }
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.35rem 0;
+}
+.form-row label { display: flex; align-items: center; gap: 0.4rem; }
+label.inline { display: inline-flex; align-items: center; gap: 0.35rem; }

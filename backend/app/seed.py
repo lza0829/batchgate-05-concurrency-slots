@@ -1,4 +1,5 @@
 from app.db import connect
+from app.engines.slots import DEFAULT_CONCURRENCY, DEFAULT_SLOT_POLICY
 
 
 def init_db():
@@ -84,6 +85,15 @@ def init_db():
         conn.execute(
             "INSERT OR REPLACE INTO settings(key, value) VALUES (?, ?)",
             ("default_max_attempts", "1"),
+        )
+    # Slot settings are idempotent so pre-existing databases pick up the defaults.
+    for key, value in {
+        "concurrency_limit": str(DEFAULT_CONCURRENCY),
+        "slot_overflow_policy": DEFAULT_SLOT_POLICY,
+    }.items():
+        conn.execute(
+            "INSERT OR IGNORE INTO settings(key, value) VALUES (?, ?)",
+            (key, value),
         )
     conn.commit()
     conn.close()

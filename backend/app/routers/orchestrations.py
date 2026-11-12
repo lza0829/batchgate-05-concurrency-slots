@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from app.db import connect
 from app.repositories import orchestrations as orch_repo
+from app.schemas.entities import OrchestrationRunBody
 from app.services.orchestrate_service import run_orchestration
 
 router = APIRouter(tags=["orchestrations"])
@@ -29,5 +30,11 @@ def get_orchestration(orch_id: int):
 
 
 @router.post("/orchestrations")
-def create_orchestration():
-    return run_orchestration()
+def create_orchestration(body: OrchestrationRunBody | None = None):
+    try:
+        return run_orchestration(
+            concurrency_limit=body.concurrency_limit if body else None,
+            slot_policy=body.slot_policy if body else None,
+        )
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
